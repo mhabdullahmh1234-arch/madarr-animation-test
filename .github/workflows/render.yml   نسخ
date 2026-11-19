@@ -1,0 +1,22 @@
+
+name: MADAR Animation Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Install Blender
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y blender
+
+      - name: Check Blender
+        run: blender --background --version
